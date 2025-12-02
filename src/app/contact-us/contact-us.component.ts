@@ -15,7 +15,8 @@ export class ContactUsComponent {
   navihateToNext(){
     console.log("NExt click activated")
     // this.router.navigate(['about'], {relativeTo : this.active})
-    this.router.navigateByUrl('about')
+    // this.router.navigateByUrl('about')
+    this.router.navigate(['courses/course', 2, 'Vishnu']);
   }
 
 }
