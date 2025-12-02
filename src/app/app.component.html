@@ -1,7 +1,25 @@
 <router-outlet></router-outlet>
 
 <nav>
-  <a routerLink="/home" routerLinkActive="active">Home</a> |
-  <a routerLink="/about" routerLinkActive="active">About</a> |
-  <a routerLink="/contact" routerLinkActive="active">Contact Us</a>
+  <a
+    routerLink="/home"
+    [routerLinkActive]="'active'"
+    [routerLinkActiveOptions]="{ exact: true }"
+    >Home</a
+  >
+  |
+  <a
+    routerLink="/about"
+    [routerLinkActive]="'active'"
+    [routerLinkActiveOptions]="{ exact: true }"
+    >About</a
+  >
+  |
+  <a
+    routerLink="/contact"
+    [routerLinkActive]="'active'"
+    [routerLinkActiveOptions]="{ exact: true }"
+    >Contact Us</a
+  >
 </nav>
+
