@@ -13,7 +13,7 @@ export class ContactUsComponent {
   // constructor(private router: Router) {}
 
   navihateToNext(){
-    console.log("NExt click activated")
+    console.log("Next click activated")
     // this.router.navigate(['about'], {relativeTo : this.active})
     // this.router.navigateByUrl('about')
     // this.router.navigate(['courses/course', 2, 'Vishnu']);
