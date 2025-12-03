@@ -17,8 +17,9 @@ export class ContactUsComponent {
     // this.router.navigate(['about'], {relativeTo : this.active})
     // this.router.navigateByUrl('about')
     // this.router.navigate(['courses/course', 2, 'Vishnu']);
-    // this.router.navigate(['product', 10]); 
-    this.router.navigate(['/products'], { queryParams: { category: 'electronics', page: 2 } });
+    this.router.navigate(['product', 10]); 
+    // this.router.navigate(['/products'], { queryParams: { category: 'electronics', page: 2 } });
+    
   }
 
 }

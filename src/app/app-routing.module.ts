@@ -13,8 +13,9 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactUsComponent},
   { path: 'courses/course/:id/:name', component: CourseComponent },
-  // { path: 'product/:id', component: ProductComponent },
+  { path: 'product/:id', component: ProductComponent },
   { path: 'products', component: ProductComponent },
+  
   { path: '**', component: NotFoundComponent }                     
 ];
 

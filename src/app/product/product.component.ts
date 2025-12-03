@@ -27,5 +27,12 @@ export class ProductComponent implements OnInit {
 
       console.log('this.category :', this.category);
     });
+
+
+     this.route.paramMap.subscribe(params => {
+      this.productId = params.get('id');
+
+        console.log('productId :', this.productId);
+    });
   }
 }
