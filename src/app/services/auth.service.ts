@@ -5,7 +5,7 @@ import { UserService } from './user.service';
   providedIn: 'root',
 })
 export class AuthService {
-  isLogged: Boolean = false;
+    private isLogged = false;
   userService: UserService = inject(UserService);
 
   login(username: string, password: string) {
@@ -21,5 +21,9 @@ export class AuthService {
 
   logoutUser() {
     this.isLogged = false;
+  }
+
+  isAuthenticated(): boolean {
+    return this.isLogged ;
   }
 }

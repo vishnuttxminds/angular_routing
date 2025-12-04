@@ -7,10 +7,11 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { CourseComponent } from './course/course.component';
 import { ProductComponent } from './product/product.component';
 import { LoginComponent } from './login/login.component';
+import { AuthGuradGuard } from './guard/auth-gurad.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },          
-  { path: 'home', component: HomeComponent },
+  { path: 'home', component: HomeComponent,  canActivate: [AuthGuradGuard] },
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactUsComponent},
   { path: 'courses/course/:id/:name', component: CourseComponent },

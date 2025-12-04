@@ -15,10 +15,10 @@ export class LoginComponent {
   onLoginClicked() {
     const userName = this.username.nativeElement.value;
     const password = this.password.nativeElement.value;
+    
+    const success = this.authService.login(userName, password);
 
-    const user = this.authService.login(userName, password);
-
-    if (user === undefined) {
+    if (!success) {
       alert('Login failed');
     } else {
       alert('Login success');
