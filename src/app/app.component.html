@@ -23,3 +23,59 @@
   >
 </nav>
 
+<div>
+  <h3>Using CurrencyPipe</h3>
+  <p>Price: {{ price | currency: 'INR' }}</p>
+  <p>Price: {{ price | currency: 'INR':'symbol-narrow':'4.2-2' }}</p>
+</div>
+
+<div>
+  <h3>Using DatePipe</h3>
+  <p>Current date: {{ currentDate | date }}</p>
+  <p>Current date: {{ currentDate | date: 'fullDate' | uppercase }}</p>
+  <p>Current date: {{ currentDate | date: 'shortDate' }}</p>
+</div>
+
+<div>
+  <h3>Using JsonPipe</h3>
+  <pre>{{ myObject | json }}</pre>
+</div>
+
+<div>
+  <h3>Using LowerCasePipe</h3>
+  <p>Original String: {{ myString }}</p>
+  <p>Lowercased String: {{ myString | lowercase }}</p>
+  <p>Uppercased String: {{ myString | uppercase }}</p>
+</div>
+
+<div>
+  <h3>Using PercentPipe</h3>
+  <p>Original Number: {{ myNumberPercent }}</p>
+  <p>Percentage Value: {{ myNumberPercent | percent }}</p>
+</div>
+
+<div>
+  <h3>Using SlicePipe on Array</h3>
+  <p>Original Array: {{ myArray }}</p>
+  <p>Sliced Array: {{ myArray | slice: 1:4 }}</p>
+</div>
+
+<div>
+  <h3>Using SlicePipe on String</h3>
+  <p>Original String: {{ myString }}</p>
+  <p>Sliced String: {{ myString | slice: 0:7 }}</p>
+</div>
+
+<h3>Using TitleCasePipe</h3>
+<p>Original String: {{ myString3 }}</p>
+<p>Transformed String: {{ myString3 | titlecase }}</p>
+
+<h3>Using AsyncPipe with Observable</h3>
+<p>{{ myObservable$ | async }}</p>
+
+<h3>Using AsyncPipe with Promise</h3>
+<p>{{ myPromise$ | async }}</p>
+
+<ul>
+  <li *ngFor="let value of values | filterByLength: 5">{{ value }}</li>
+</ul>

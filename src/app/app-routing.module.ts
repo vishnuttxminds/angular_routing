@@ -10,19 +10,19 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuradGuard } from './guard/auth-gurad.guard';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },          
-  { path: 'home', component: HomeComponent,  canActivate: [AuthGuradGuard] },
+  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuradGuard] },
   { path: 'about', component: AboutComponent },
-  { path: 'contact', component: ContactUsComponent},
+  { path: 'contact', component: ContactUsComponent },
   { path: 'courses/course/:id/:name', component: CourseComponent },
   { path: 'product/:id', component: ProductComponent },
   { path: 'products', component: ProductComponent },
-  {path:'Login', component: LoginComponent},
-  { path: '**', component: NotFoundComponent }                     
+  { path: 'Login', component: LoginComponent },
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

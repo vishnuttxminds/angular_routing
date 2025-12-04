@@ -10,7 +10,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { CourseComponent } from './course/course.component';
 import { ProductComponent } from './product/product.component';
 import { LoginComponent } from './login/login.component';
-
+import { CustomPipe } from './custom-pipes/custom.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +20,8 @@ import { LoginComponent } from './login/login.component';
     NotFoundComponent,
     CourseComponent,
     ProductComponent,
-    LoginComponent
+    LoginComponent,
+    CustomPipe,
   ],
   imports: [
     BrowserModule,

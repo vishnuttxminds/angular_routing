@@ -2,8 +2,6 @@ import { CanActivateFn, Router } from '@angular/router';
 import { inject } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 
-let isLoggedIn = false;
-
 
 export const AuthGuradGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
