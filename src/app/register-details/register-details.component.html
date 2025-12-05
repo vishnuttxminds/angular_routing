@@ -1,0 +1,50 @@
+<p>register-details works!</p>
+
+<h2>Register Form</h2>
+
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+  <label>First Name</label>
+  <input type="text" formControlName="firstname">
+  <small *ngIf="registerForm.get('firstname')?.touched && registerForm.get('firstname')?.invalid">
+    First name is required (min 3 letters)
+  </small>
+<br>
+  <label>Last Name</label>
+  <input type="text" formControlName="lastname">
+<br>
+  <label>Email</label>
+  <input type="email" formControlName="email">
+<br>
+  <label>Username</label>
+  <input type="text" formControlName="username">
+<br>
+  <label>Password</label>
+  <input type="password" formControlName="password">
+<br>
+  <label>Confirm Password</label>
+  <input type="password" formControlName="confirmPassword">
+  <small *ngIf="registerForm.errors?.['mismatch']">
+    Passwords do not match
+  </small>
+<br>
+  <label>Gender</label>
+  <select formControlName="gender">
+    <option value="">Select</option>
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+  </select>
+<br>
+  <label>Date of Birth</label>
+  <input type="date" formControlName="dob">
+<br>
+  <label>Country</label>
+  <input type="text" formControlName="country">
+<br>
+  <label>City</label>
+  <input type="text" formControlName="city">
+<br>
+  <button type="submit" [disabled]="registerForm.invalid">Register</button>
+
+</form>
+
