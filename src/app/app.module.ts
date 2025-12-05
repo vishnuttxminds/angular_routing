@@ -11,6 +11,9 @@ import { CourseComponent } from './course/course.component';
 import { ProductComponent } from './product/product.component';
 import { LoginComponent } from './login/login.component';
 import { CustomPipe } from './custom-pipes/custom.pipe';
+import { RegisterComponent } from './register/register.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RegisterDetailsComponent } from './register-details/register-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,10 +25,13 @@ import { CustomPipe } from './custom-pipes/custom.pipe';
     ProductComponent,
     LoginComponent,
     CustomPipe,
+    RegisterComponent,
+    RegisterDetailsComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule   
   ],
   providers: [],
   bootstrap: [AppComponent]
