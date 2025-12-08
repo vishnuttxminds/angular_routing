@@ -14,6 +14,8 @@ import { CustomPipe } from './custom-pipes/custom.pipe';
 import { RegisterComponent } from './register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterDetailsComponent } from './register-details/register-details.component';
+import { HttpClientModule } from '@angular/common/http';
+import { UserComponent } from './user/user.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,11 +29,13 @@ import { RegisterDetailsComponent } from './register-details/register-details.co
     CustomPipe,
     RegisterComponent,
     RegisterDetailsComponent,
+    UserComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule   
+    ReactiveFormsModule,
+    HttpClientModule      
   ],
   providers: [],
   bootstrap: [AppComponent]
