@@ -6,11 +6,23 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class HttpApiService {
-  private apiUrl = 'https://jsonplaceholder.typicode.com/users';
+
+
+  private baseUrl = 'https://jsonplaceholder.typicode.com/';
+
+    private getEndUrl = this.baseUrl+'users';
+
+    private postEndUrl = this.baseUrl+'posts';
 
   constructor(private http: HttpClient) {}
 
   getUsers(): Observable<any> {
-    return this.http.get(this.apiUrl);
+    return this.http.get(this.getEndUrl);
   }
+
+  createUser(data: any): Observable<any> {
+    return this.http.post(this.postEndUrl, data);
+  }
+
+  
 }

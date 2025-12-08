@@ -29,4 +29,20 @@ export class UserComponent implements OnInit {
       }
     );
   }
+
+  createUserPost() {
+    const userData = {
+      name: 'Thoma',
+      email: 'thoma@example.com',
+    };
+
+    this.userService.createUser(userData).subscribe(
+      (response) => {
+        console.log('User created successfully:', response);
+      },
+      (error) => {
+        console.error('Error creating user:', error);
+      }
+    );
+  }
 }
