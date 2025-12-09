@@ -21,7 +21,10 @@ export class UserComponent implements OnInit {
     this.registerForm = new FormGroup({
       name: new FormControl(null, [Validators.required]),
       email: new FormControl(null, [Validators.required, Validators.email]),
-      phone: new FormControl(null, [Validators.required, Validators.minLength(10),]),
+      phone: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(10),
+      ]),
     });
   }
 
@@ -62,14 +65,39 @@ export class UserComponent implements OnInit {
     }
 
     const formData = this.registerForm.value;
+    console.log('Error Register formData:', formData.name);
 
     this.userService.createUser(formData).subscribe(
       (response) => {
-        console.log('User Register successfully:', JSON.stringify(formData) );
+        console.log('User Register successfully:', JSON.stringify(formData));
       },
       (error) => {
         console.error('Error Register user:', error);
       }
     );
+  }
+
+  updateUser() {
+    const formData = this.registerForm.value;
+    const id = 1;
+
+    const updateData = {
+      name: formData.name,
+      email: formData.email,
+    };
+
+    this.userService.updateUser(id, updateData).subscribe((res) => {
+      this.response = res;
+      alert('User Updated!');
+    });
+  }
+
+  deleteUser() {
+    const id = 1;
+
+    this.userService.deleteUser(id).subscribe((res) => {
+      this.response = res;
+      alert('User Deleted!');
+    });
   }
 }

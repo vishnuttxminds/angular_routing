@@ -6,13 +6,15 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class HttpApiService {
-
-
   private baseUrl = 'https://jsonplaceholder.typicode.com/';
 
-    private getEndUrl = this.baseUrl+'users';
+  private getEndUrl = this.baseUrl + 'users';
 
-    private postEndUrl = this.baseUrl+'posts';
+  private postEndUrl = this.baseUrl + 'posts';
+
+  private putEndUrl = this.baseUrl + 'users';
+
+  private deleteEndUrl = this.baseUrl + 'users';
 
   constructor(private http: HttpClient) {}
 
@@ -28,5 +30,11 @@ export class HttpApiService {
     return this.http.post(this.postEndUrl, payload);
   }
 
-  
+  updateUser(id: any, data: any): Observable<any> {
+    return this.http.put(`${this.putEndUrl}/${id}`, data);
+  }
+
+  deleteUser(id: any): Observable<any> {
+    return this.http.delete(`${this.deleteEndUrl}/${id}`);
+  }
 }
