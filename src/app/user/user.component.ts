@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { HttpApiService } from '../services/http-api.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-user',
@@ -9,11 +10,19 @@ import { HttpApiService } from '../services/http-api.service';
 })
 export class UserComponent implements OnInit {
   users: any[] = [];
+  response: any;
+  registerForm!: FormGroup;
 
   constructor(private userService: HttpApiService) {}
 
   ngOnInit(): void {
-    this.callUserApi();
+    // this.callUserApi();
+
+    this.registerForm = new FormGroup({
+      name: new FormControl(null, [Validators.required]),
+      email: new FormControl(null, [Validators.required, Validators.email]),
+      phone: new FormControl(null, [Validators.required, Validators.minLength(10),]),
+    });
   }
 
   callUserApi() {
@@ -42,6 +51,24 @@ export class UserComponent implements OnInit {
       },
       (error) => {
         console.error('Error creating user:', error);
+      }
+    );
+  }
+
+  onSubmit() {
+    if (this.registerForm.invalid) {
+      this.registerForm.markAllAsTouched();
+      return;
+    }
+
+    const formData = this.registerForm.value;
+
+    this.userService.createUser(formData).subscribe(
+      (response) => {
+        console.log('User Register successfully:', JSON.stringify(formData) );
+      },
+      (error) => {
+        console.error('Error Register user:', error);
       }
     );
   }

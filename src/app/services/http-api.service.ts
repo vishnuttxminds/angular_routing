@@ -24,5 +24,9 @@ export class HttpApiService {
     return this.http.post(this.postEndUrl, data);
   }
 
+  registerUser(payload: any): Observable<any> {
+    return this.http.post(this.postEndUrl, payload);
+  }
+
   
 }

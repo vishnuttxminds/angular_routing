@@ -1,7 +1,54 @@
 <p>user works!</p>
 
-<button (click)="createUserPost()">REGISTER</button>
+<!-- <button (click)="createUserPost()">REGISTER</button>
 
 <pre>
     Api response: {{ users | json }}
-</pre>
+</pre> -->
+
+<div class="container">
+  <h2>Register Form</h2>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <label>Name</label>
+    <input type="text" formControlName="name" />
+    <div
+      *ngIf="
+        registerForm.get('name')?.touched && registerForm.get('name')?.invalid
+      "
+    >
+      <small style="color: red">Name is required</small>
+    </div>
+    <br />
+    <label>Email</label>
+    <input type="email" formControlName="email" />
+    <div
+      *ngIf="
+        registerForm.get('email')?.touched && registerForm.get('email')?.invalid
+      "
+    >
+      <small style="color: red">Valid email is required</small>
+    </div>
+    <br />
+    <label>Phone</label>
+    <input type="text" formControlName="phone" />
+    <div
+      *ngIf="
+        registerForm.get('phone')?.touched && registerForm.get('phone')?.invalid
+      "
+    >
+      <small style="color: red">Phone is required</small>
+
+      <small
+        *ngIf="registerForm.get('phone')?.errors?.['minlength']"
+        style="color: red"
+      >
+        Phone must be at least 10 digits
+      </small>
+    </div>
+    <br />
+    <button type="submit">Submit</button>
+  </form>
+  <hr />
+  <h3>API Response:</h3>
+  <pre>{{ response | json }}</pre>
+</div>
